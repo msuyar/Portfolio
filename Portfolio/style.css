@@ -1,0 +1,284 @@
+/* General body styling */
+body {
+  background-color: #eafaf1; /* Light green background */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Consistent font */
+  color: #34495e; /* Dark gray text color */
+  line-height: 1.6; /* Improved readability */
+}
+
+/* General section styling */
+section {
+  padding: 20px;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #16a085; /* Teal header */
+  color: white;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+}
+
+/* Navigation buttons */
+nav {
+  text-align: center;
+  padding: 10px 0;
+}
+
+nav button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #16a085;
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+nav button:hover {
+  background-color: #1abc9c;
+}
+
+/* Section headings */
+section h2 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Project container styles */
+.project {
+  display: none; /* Hide all projects initially */
+  padding: 20px;
+  background-color: white; /* White background for project cards */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for project cards */
+  overflow: hidden;
+}
+
+.project.active {
+  display: flex; /* Flex layout for active projects */
+  flex-wrap: wrap; /* Wrap content on smaller screens */
+  align-items: center;
+}
+
+ .project img {
+  max-width: 50%;  /* Make the image responsive */ 
+  height: auto;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+/*.project p {
+  color: #34495e;
+}*/
+
+.project a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Footer styling */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #16a085;
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  /* Reduce padding for smaller screens */
+  section {
+    padding: 10px;
+  }
+
+  /* Adjust header font sizes */
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  /* Adjust project layout for smaller screens */
+  .project {
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  /*.project img {
+    margin: 0 0 20px 0;   
+    width: 100%;  
+  } */
+
+  /*.project p, .project a {
+    text-align: center;  Center-align text for smaller screens 
+  }*/
+}
+
+@media (max-width: 480px) {
+  /* Further reduce padding and font sizes for very small screens */
+  nav button {
+    padding: 8px 15px;
+    font-size: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Skill Bars Section */
+#skills {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.skill-bar {
+  background-color: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  height: 20px;
+  width: 100%;
+}
+
+.skill-fill {
+  height: 100%;
+  background-color: #4caf50; /* Adjust the color as desired */
+  transition: width 0.5s ease-in-out;
+  border-radius: 20px;
+}
+
+/* Fixed Footer */
+#fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #16a085; /* Adjust to match your site's theme */
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensures it stays on top of other elements */
+}
+
+/* Ensure content doesn't overlap with the footer */
+body {
+  margin: 0;
+  padding-bottom: 100px;
+}
+
+/* Collapsible Button */
+.collapsible {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Hidden content by default */
+.content {
+  display: none; /* Hidden by default */
+  overflow: hidden;
+  padding: 10px 0;
+  border-left: 2px solid #4CAF50;
+  margin-left: 10px;
+}
+
+/* Skill Bar */
+.skill-bar {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  width: 100%;
+  height: 10px;
+  margin: 5px 0;
+}
+
+.skill-fill {
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 5px;
+}
+
+footer a {
+  color: white; /* White text */
+  text-decoration: none;
+  padding: 5px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+}
+
+footer a:hover {
+  background-color: white;
+  color: #16a085; /* Black text on hover */
+}
+
+/* Style for the title (h2) */
+.project h2 {
+  font-size: 3em;
+  margin-bottom: 0; /* Space between title and description */
+  color: #333; /* Example: dark grey for readability */
+}
+
+/* Style for the description (p) */
+.project p {
+  margin-top: 0; /* Remove any unnecessary spacing above */
+  font-size: 1.5em;
+  color: #555; /* Slightly lighter grey for distinction */
+  line-height: 1.5; /* Better readability with consistent spacing */
+}
+
+/* Optional: Style the GitHub link */
+.project a {
+  display: inline-block; /* Ensures consistent positioning */
+  margin-top: 10px; /* Space between the description and the link */
+  font-size: 0.9em;
+  color: #007acc; /* GitHub blue link */
+  text-decoration: none;
+}
+
+.project a:hover {
+  text-decoration: underline; /* Emphasize link on hover */
+}
+
+
+
