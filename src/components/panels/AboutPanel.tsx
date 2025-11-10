@@ -82,24 +82,28 @@ function LogoGrid({ items }: { items: string[] }) {
 const CERTS = [
   {
     title: "C# Programming for Unity",
-    file: "C Sharp Programming for Unity.pdf",
-    img: "/media/cu_logo.png",
+    file: asset("certificates/C Sharp Programming for Unity.pdf"),
+    img: asset("media/cu_logo.png"),
   },
   {
     title: "Complete C# Unity Game Developer 2D",
-    file: "Complete C Sharp Unity Game Developer 2D.pdf",
-    img: "/media/GameDevLogo.png",
+    file: asset("certificates/Complete C Sharp Unity Game Developer 2D.pdf"),
+    img: asset("media/GameDevLogo.png"),
   },
-  { title: "Google IT", file: "Google IT.pdf", img: "/media/GoogleLogo.jpg" },
+  {
+    title: "Google IT",
+    file: asset("certificates/Google IT.pdf"),
+    img: asset("media/GoogleLogo.jpg"),
+  },
   {
     title: "Intro to Godot Course",
-    file: "Intro to Godot Course.pdf",
-    img: "/media/zenvalogo.png",
+    file: asset("certificates/Intro to Godot Course.pdf"),
+    img: asset("media/zenvalogo.png"),
   },
   {
     title: "Unity 2.5D Turn-Based RPG",
-    file: "Unity 2.5D Turn-Based RPG.pdf",
-    img: "/media/GameDevLogo.png",
+    file: asset("certificates/Unity 2.5D Turn-Based RPG.pdf"),
+    img: asset("media/GameDevLogo.png"),
   },
 ];
 
@@ -124,14 +128,15 @@ function PdfIcon({ className = "w-10 h-10" }: { className?: string }) {
 
 function CertCard({
   title,
-  file,
+  file, // already a full, correct URL from asset(...)
   img,
 }: {
   title: string;
   file: string;
   img?: string;
 }) {
-  const href = `/certificates/${encodeURIComponent(file)}`;
+  const href = file; // ✅ use as-is
+
   return (
     <div className="text-left rounded-2xl border p-4 bg-white hover:shadow-md transition">
       {/* Thumbnail area */}
@@ -141,6 +146,7 @@ function CertCard({
             src={img}
             alt={`${title} logo`}
             loading="lazy"
+            decoding="async"
             className="h-full w-full object-contain"
           />
         ) : (
@@ -171,6 +177,7 @@ function CertCard({
     </div>
   );
 }
+
 
 export default function AboutPanel({ picked }: Props) {
   const which = (picked ?? "What I Use").toLowerCase();
@@ -248,7 +255,7 @@ export default function AboutPanel({ picked }: Props) {
   // ---------------------
   // CV (default)
   // ---------------------
-  const cvHref = `/certificates/${encodeURIComponent("CV v0.2.pdf")}`;
+  const cvHref = asset("certificates/CV v0.2.pdf");
 
   return (
     <motion.div

@@ -66,8 +66,8 @@ export function LeftNav({
                 <img
                   src={
                     selected
-                      ? "/media/DnDLogo_Alternative.png"
-                      : "/media/DnDLogo.png"
+                      ? asset("media/DnDLogo_Alternative.png")
+                      : asset("media/DnDLogo.png")
                   }
                   alt="Dungeons & Dragons"
                   className="absolute inset-0 m-auto object-contain scale-[2.2] sm:scale-[2.4] h-10 w-10 pointer-events-none"
