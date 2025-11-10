@@ -1,0 +1,57 @@
+/* tailwind base (keep if you already had them) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* defaults (light) */
+:root {
+  --bg: #fafafa;
+  --fg: #0a0a0a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --card: #ffffff;
+  --chip: #f3f4f6;
+  --accent: #6366f1; /* default accent */
+  --ring: rgba(99, 102, 241, .35);
+}
+
+/* WEB — cool cyan/indigo */
+[data-section="WEB"] {
+  --bg: #f7fbff;
+  --fg: #0b1324;
+  --muted: #5b6b83;
+  --border: #e1e8f7;
+  --card: #ffffff;
+  --chip: #eef4ff;
+  --accent: #3b82f6;
+  --ring: rgba(59, 130, 246, .35);
+}
+
+/* GAME — playful lime/violet */
+[data-section="GAME"] {
+  --bg: #fbfff7;
+  --fg: #10140a;
+  --muted: #5e6a57;
+  --border: #e7f1d6;
+  --card: #ffffff;
+  --chip: #f2fbe0;
+  --accent: #8b5cf6;
+  --ring: rgba(139, 92, 246, .35);
+}
+
+/* DND — parchment + crimson */
+[data-section="DND"] {
+  --bg: #fffaf3;
+  --fg: #231814;
+  --muted: #7a645a;
+  --border: #f1e5d0;
+  --card: #fffcf7;
+  --chip: #f8eee2;
+  --accent: #dc2626;
+  --ring: rgba(220, 38, 38, .35);
+}
+
+/* smooth theme transitions */
+html, body, [data-section] * {
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}

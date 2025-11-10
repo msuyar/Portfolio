@@ -1,0 +1,1 @@
+export type TransitionKind = "universal" | "shuffle" | "d20" | "elemental"| null;

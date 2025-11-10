@@ -1,0 +1,27 @@
+public/tech/AWS.svg
+public/tech/Apple MacOSX.svg
+public/tech/C++.svg
+public/tech/Docker.svg
+public/tech/Firebase.svg
+public/tech/Git.svg
+public/tech/Google Chrome.svg
+public/tech/Haskell.svg
+public/tech/Java.svg
+public/tech/Javascript.svg
+public/tech/Kafka.svg
+public/tech/Kubernates.svg
+public/tech/MUI.svg
+public/tech/Mongo.svg
+public/tech/Next.svg
+public/tech/Node.svg
+public/tech/Postman.svg
+public/tech/Python.svg
+public/tech/React.svg
+public/tech/Redis.svg
+public/tech/Redux.svg
+public/tech/SQL.svg
+public/tech/Tailwind.svg
+public/tech/Typescript.svg
+public/tech/go.svg
+public/tech/intellij-idea.svg
+public/tech/vscode.svg
