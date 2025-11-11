@@ -21,6 +21,13 @@ export default function App() {
   const [picked, setPicked] = useState<string | null>(null);
   const [overlay, setOverlay] = useState<TransitionKind>(null);
 
+  function nudgeResize() {
+    // fire a few times to catch post-animation layout
+    window.dispatchEvent(new Event("resize"));
+    requestAnimationFrame(() => window.dispatchEvent(new Event("resize")));
+    setTimeout(() => window.dispatchEvent(new Event("resize")), 60);
+  }
+
   // Ensure a valid subsection is always chosen for the current section
   useEffect(() => {
     const list = SUBSECTIONS[active] ?? [];
@@ -172,7 +179,9 @@ export default function App() {
           durationMs={900}
           accent="#8ab6ff"
           name="Muhammed Said Uyar"
-          onComplete={() => setOverlay(null)}
+          onComplete={() =>{ 
+            nudgeResize();
+            setOverlay(null)}}
         />
       </AnimatePresence>
     </div>

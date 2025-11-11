@@ -343,18 +343,6 @@ export default function AboutStarfallTransition({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, delay: 0.15 }}
           >
-            <span
-              className="select-none"
-              style={{
-                fontWeight: 700,
-                letterSpacing: "0.08em",
-                color: "rgba(255,255,255,0.9)",
-                textShadow: "0 2px 10px rgba(0,0,0,0.35)",
-                fontSize: "clamp(14px, 2vw, 18px)",
-              }}
-            >
-              make a wish ✨
-            </span>
           </motion.div>
         </motion.div>
       )}
