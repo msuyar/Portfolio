@@ -7,7 +7,7 @@ import type { SectionKey } from "./sections";
 export const SUBSECTIONS: Record<SectionKey, string[]> = {
   ABOUT: [
     "What I Use",
-    "CV", 
+    "Resume", 
     "Certificates",
   ],
   GAME: [
@@ -89,7 +89,7 @@ export const QUALIFICATIONS: Record<SectionKey, string[]> = {
 };
 
 export const ABOUT_SKILLS: string[] = [
-  "C++", "JavaScript", "TypeScript", "Go", "Node.js", "React",
+  "C#", "C++", "JavaScript", "TypeScript", "Go", "Node.js", "React",
   "Next.js", "Redux", "Docker", "Kubernetes", "PostgreSQL",
   "Python", "Java", "Haskell", "Tailwind CSS", "Material UI",
   "Rust", "AWS", "Kafka", ".NET", "Django", "EF Core", "Unity", "Godot",

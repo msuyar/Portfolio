@@ -255,7 +255,7 @@ export default function AboutPanel({ picked }: Props) {
   // ---------------------
   // CV (default)
   // ---------------------
-  const cvHref = asset("certificates/CV v0.2.pdf");
+  const resumeHref = asset("certificates/CV v0.2.pdf");
 
   return (
     <motion.div
@@ -266,10 +266,10 @@ export default function AboutPanel({ picked }: Props) {
     >
       <section className="rounded-3xl border bg-white overflow-hidden">
         <div className="flex items-center justify-between px-6 pt-6">
-          <h2 className="text-xl font-semibold text-[var(--fg)]">My CV</h2>
+          <h2 className="text-xl font-semibold text-[var(--fg)]">My Resume</h2>
           <div className="flex gap-2">
             <a
-              href={cvHref}
+              href={resumeHref}
               target="_blank"
               rel="noreferrer"
               className="px-3 py-1.5 text-sm rounded-lg border hover:bg-gray-100 transition"
@@ -277,7 +277,7 @@ export default function AboutPanel({ picked }: Props) {
               View in new tab
             </a>
             <a
-              href={cvHref}
+              href={resumeHref}
               download
               className="px-3 py-1.5 text-sm rounded-lg border hover:bg-gray-100 transition"
             >
@@ -288,7 +288,7 @@ export default function AboutPanel({ picked }: Props) {
 
         <div className="px-6 pb-6">
           <iframe
-            src={cvHref}
+            src={resumeHref}
             className="w-full h-[min(85vh,1000px)] rounded-2xl bg-white"
           />
         </div>

@@ -1,4 +1,3 @@
-// src/App.tsx
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Footer } from "./components/layout/Footer";
@@ -14,15 +13,21 @@ import Starfield from "./components/backgrounds/Starfield";
 import type { SectionKey } from "./config/sections";
 import type { TransitionKind } from "./types/transitions";
 import { SUBSECTIONS } from "./config/data";
-import { asset } from "./lib/asset"; // <-- IMPORTANT
+import { asset } from "./lib/asset";
+import { getRiggedDndRoll } from "./lib/dndRig"; // 👈 NEW
 
 export default function App() {
   const [active, setActive] = useState<SectionKey>("ABOUT");
   const [picked, setPicked] = useState<string | null>(null);
   const [overlay, setOverlay] = useState<TransitionKind>(null);
 
+  // for DND gate
+  const [queuedSection, setQueuedSection] = useState<SectionKey | null>(null);
+  const [forcedDndRoll, setForcedDndRoll] = useState<number | undefined>(
+    undefined
+  );
+
   function nudgeResize() {
-    // fire a few times to catch post-animation layout
     window.dispatchEvent(new Event("resize"));
     requestAnimationFrame(() => window.dispatchEvent(new Event("resize")));
     setTimeout(() => window.dispatchEvent(new Event("resize")), 60);
@@ -43,13 +48,22 @@ export default function App() {
   function handleSelect(section: SectionKey) {
     if (section === active) return;
 
-    // choose overlay based on target section
-    if (section === "DND") setOverlay("d20");
-    else if (section === "WEB") setOverlay("universal");
+    // Special handling for DND: gate it behind the D20 roll
+    if (section === "DND") {
+      const rigged = getRiggedDndRoll(); // 1st: 1, 2nd: >=7, 3rd+: null
+      setForcedDndRoll(
+        rigged === null ? undefined : rigged
+      ); // undefined => random inside overlay
+      setQueuedSection("DND");
+      setOverlay("d20"); // show D20 overlay
+      return; // ❗ do NOT immediately setActive
+    }
+
+    // Other sections behave as before
+    if (section === "WEB") setOverlay("universal");
     else if (section === "GAME") setOverlay("shuffle");
     else if (section === "ABOUT") setOverlay("elemental");
 
-    // immediately pick the first subsection of the next section
     const firstOfNext = SUBSECTIONS[section]?.[0] ?? null;
     setPicked(firstOfNext);
     setActive(section);
@@ -80,14 +94,16 @@ export default function App() {
             }
           : isGame
           ? {
-              backgroundImage: `url('${asset("media/GameDevBackground.png")}')`,
+              backgroundImage: `url('${asset(
+                "media/GameDevBackground.png"
+              )}')`,
               backgroundRepeat: "repeat",
               backgroundPosition: "top left",
               backgroundSize: "auto",
             }
           : isWeb
-          ? undefined // WEB handled by gradients below
-          : undefined // ABOUT handled by Starfield below
+          ? undefined
+          : undefined
       }
     >
       {/* BACKGROUND LAYERS */}
@@ -105,7 +121,6 @@ export default function App() {
         </>
       )}
 
-      {/* ABOUT uses crisp starfield instead of static image */}
       {isAbout && (
         <>
           <Starfield
@@ -166,10 +181,38 @@ export default function App() {
 
       {/* TRANSITIONS */}
       <AnimatePresence>
-        {overlay === "d20" && <D20RollOverlay onDone={() => setOverlay(null)} />}
+        {/* D20 gate for DND */}
+        {overlay === "d20" && (
+        <D20RollOverlay
+          dc={10}
+          label="D&D section"
+          forcedResult={forcedDndRoll}
+          onDone={({ success }) => {
+            // overlay closes once D20RollOverlay finishes animation + 5s
+            setOverlay(null);
+
+            if (success && queuedSection === "DND") {
+              // success -> go to DND
+              setActive("DND");
+              const firstDnd = SUBSECTIONS["DND"]?.[0] ?? null;
+              setPicked(firstDnd);
+            } else {
+              // fail (or any other weird case) -> go to ABOUT
+              setActive("ABOUT");
+              const firstAbout = SUBSECTIONS["ABOUT"]?.[0] ?? null;
+              setPicked(firstAbout);
+            }
+
+            setQueuedSection(null);
+            setForcedDndRoll(undefined);
+          }}
+        />
+      )}
+
         {overlay === "universal" && (
           <UniversalTransition onDone={() => setOverlay(null)} />
         )}
+
         {overlay === "shuffle" && (
           <ShuffleTransition onDone={() => setOverlay(null)} />
         )}
@@ -179,9 +222,10 @@ export default function App() {
           durationMs={900}
           accent="#8ab6ff"
           name="Muhammed Said Uyar"
-          onComplete={() =>{ 
+          onComplete={() => {
             nudgeResize();
-            setOverlay(null)}}
+            setOverlay(null);
+          }}
         />
       </AnimatePresence>
     </div>

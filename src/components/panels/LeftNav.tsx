@@ -20,7 +20,7 @@ export function LeftNav({
         <img
           src={asset("media/profile.jpg")}
           alt="Muhammed Said Uyar"
-          className="w-40 h-40 rounded-full object-cover border-2 border-[var(--border)] shadow-sm mb-2"
+          className="w-60 h-60 rounded-full object-cover border-2 border-[var(--border)] shadow-sm mb-2"
         />
         {/* Name */}
         <div

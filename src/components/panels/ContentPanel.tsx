@@ -20,7 +20,7 @@ const SECTION_DESCRIPTIONS: Record<string, string> = {
   [normalize("DND")]:
     "Homebrew campaigns, encounter design, and tooling.",
   [normalize("ABOUT")]:
-    "Quick access to my CV and a curated list of certificates.",
+    "Quick access to my Resume and a curated list of certificates.",
 };
 
 /** Per-subsection blurbs (extend as you add more) */
