@@ -1,4 +1,4 @@
-import { Github, Mail, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, Phone } from "lucide-react";
 
 export function Footer() {
   return (
@@ -21,7 +21,7 @@ export function Footer() {
           </a>
         </div>
 
-        {/* Right side: GitHub */}
+        {/* Right side: GitHub + LinkedIn */}
         <div className="flex items-center gap-3">
           <a
             href="https://github.com/msuyar"
@@ -32,6 +32,19 @@ export function Footer() {
           >
             <Github className="w-4 h-4" />
             <span>/msuyar</span>
+          </a>
+
+          <span className="text-neutral-300">•</span>
+
+          <a
+            href="https://www.linkedin.com/in/muhammed-said-uyar-a83156343/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 hover:text-[var(--fg)] transition-colors"
+            title="View my LinkedIn profile"
+          >
+            <Linkedin className="w-4 h-4" />
+            <span>/muhammed-said-uyar</span>
           </a>
         </div>
       </div>
