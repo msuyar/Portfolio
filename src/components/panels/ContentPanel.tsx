@@ -44,8 +44,8 @@ const SUBSECTION_DESCRIPTIONS: Record<string, string> = {
     "A clean Django REST API consuming TheMovieDB/PokéAPI-style data with structured endpoints, pagination, and typed clients for front-end use.",
   [normalize("ElearnX (Django REST + Channels + Redis)")]:
     "A MOOC platform prototype: JWT-auth endpoints, course/catalog APIs, WebSocket chat via Django Channels, and Redis-backed notifications.",
-  [normalize("MovieForge (.NET Web API)")]:
-    "ASP.NET Core Web API with JWT auth, watchlists, reviews, filtering, repository pattern, and EF Core (SQLite/Postgres).",
+  [normalize("Vtt.API (D&D Companion — Capacitor + Azure)")]:
+    `Vtt.API is a full-stack D&D Virtual Tabletop companion app built with Capacitor, giving it a native Android feel without sacrificing web flexibility. The backbone of the entire data model is the <strong>Powers</strong> entity — a carefully designed DB structure that acts as the universal blueprint for spells, attacks, and abilities. Because monsters, items, characters, and classes all reference Powers, the system stays consistent and extensible: the same listing view, the same lookup logic, and the same UI components are reused across every entity type. Beyond the architecture, the app is simply enjoyable to use — physics-driven <strong>3D dice</strong> rendered with a WebGL dice library make every attack roll and skill check feel tactile and satisfying. Monsters, spells, and characters are all browsable in a polished interface, and the dice roller is even available as a free tool for anyone without an account. The full stack is deployed on <strong>Azure</strong>. <a href="https://youtu.be/uorrJVMYrJc" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; text-decoration:underline;">Watch the demo on YouTube ↗</a>`,
 
   // ---- DND ----
   [normalize("ROSEBERRY OPS: THE FEDAILERI CHRONICLES (LINEAR STORY TELLING)")]:
@@ -63,7 +63,7 @@ const CARD_GAME_LABEL = "Satirical Parody Card Game (85 Cards, 5 Versions)";
 const POKEWEB_LABEL = "PokéWeb (Django REST API)";
 const ELEARNX_LABEL = "ElearnX (Django REST + Channels + Redis)";
 const GA_SIM_LABEL = "Genetic Algorithm Creature Simulation";
-const MOVIEFORGE_LABEL = "MovieForge (.NET Web API)";
+const VTTAPI_LABEL = "Vtt.API (D&D Companion — Capacitor + Azure)";
 const PROJECT_HR_LABEL =
   "PROJECT-HR (Multi-Tenant HR Platform - .NET 9 + ABP Framework)";
 
@@ -105,7 +105,7 @@ export function ContentPanel({
     (eq(picked, POKEWEB_LABEL) ||
       eq(picked, ELEARNX_LABEL) ||
       eq(picked, GA_SIM_LABEL) ||
-      eq(picked, MOVIEFORGE_LABEL) ||
+      eq(picked, VTTAPI_LABEL) ||
       eq(picked, PROJECT_HR_LABEL));
 
   // ✅ Build per-section gallery items

@@ -20,7 +20,7 @@ export const SUBSECTIONS: Record<SectionKey, string[]> = {
     "PROJECT-HR (Multi-Tenant HR Platform - .NET 9 + ABP Framework)",
     "ElearnX (Django REST + Channels + Redis)",
     "PokéWeb (Django REST API)",
-    "MovieForge (.NET Web API)",
+    "Vtt.API (D&D Companion — Capacitor + Azure)",
     "Genetic Algorithm Creature Simulation",
   ],
   DND: [
@@ -36,6 +36,7 @@ export const SUBSECTIONS: Record<SectionKey, string[]> = {
  *  ---------------------------
  */
 export const HIGHLIGHTS: Record<SectionKey, string[]> = {
+  ABOUT: [],
   GAME: [
     "🎮 Unity 2.5D Turn-Based systems",
     "🖼️ Asset pipelines & tooling",
